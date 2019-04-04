@@ -11,30 +11,27 @@ import math
 import operator 
 import sys
 
-highestPower = 5
-coefficientsRange = [10, 6, 3.5, 1.5, 0.6, 0.3, 0.2, 0.05, 0.02, 0.005, 0.002]
-nbPerSample = 1200
-WIDTH = 800
-HEIGHT = 800
-YSCALE = 2
-XSCALE = 2
-SIZE = 5
-populationSize = 100
-mutationRate = 0.1
-nBestCopied = 10
-nGenerations = 10000
-sampleDiff = 0.01
-mutationDifference = 0.3
+highestPower = 5            #highest possible power in every population, it also defines how many populations there are going to be (highestPower + 1)                                                           
+coefficientsRange = [10, 6, 3.5, 1.5, 0.6, 0.3, 0.2, 0.05, 0.02, 0.005, 0.002] #initial range in which coefficients for each power can be created (-coeffcientsRange[power], +coefficientsRange[power])
+nbPerSample = 1200          #it defines how big the values on screen are going to be 
+WIDTH = 800                 #width of the window
+HEIGHT = 800                #height of the window
+YSCALE = 2                  #how much X-axis is going to be scaled
+XSCALE = 2                  #how much Y-axis is going to be scaled
+SIZE = 5                    #brush size
+populationSize = 100        #how many functions are in each population
+mutationRate = 0.1          #the chance that a mixed function is going to be completely random
+nBestCopied = 10            #how many best functions we mix to create new population
+nGenerations = 10000        #maximum number of generations
+sampleDiff = 0.01           #we calulate difference for each funtion every sampleDifference x
+mutationDifference = 0.3    #the range of coefficients mutation in each new function, new coefficient is inherited from one of the parents and then to this value a random value from this range is added
+
 
 
 lowBound = -(nbPerSample * sampleDiff / 2)
 YSCALE = int(YSCALE)
 XSCALE = int(XSCALE)
 
-
-
-
-    
 if len(coefficientsRange) - 1 < highestPower:
     sys.exit('CHECK COEFFCIENTS')
     
